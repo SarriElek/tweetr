@@ -8,13 +8,26 @@ module.exports = function makeDataHelpers(db) {
   return {
 
     getTweets: function (callback) {
-     db.collection("tweets").find().toArray(callback);
+      db.collection("tweets").find().sort({ created_at : -1}).toArray(callback);
+     //db.collection("tweets").find().toArray(function(err, tweets){
+     //    if(err){
+     //      callback(err);
+     //      return;
+     //    }
+     //    callback(null,tweets);
+     // });
    },
 
    // Saves a tweet to `db`
     saveTweet: function(newTweet, callback) {
-        db.collection("tweets").insertOne(newTweet);
-        callback(null, true);
+        db.collection("tweets").insertOne(newTweet, function(err){
+          if(err){
+            callback(err);
+            return;
+          }
+          callback(null, true);
+        });
+
     }
 
   };

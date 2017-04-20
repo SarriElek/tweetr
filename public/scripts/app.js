@@ -14,7 +14,7 @@
 
   function renderTweets(tweets) {
     $('#tweets-container').empty()
-                          .append(tweets.reverse().map(tweetTemplate));
+                          .append(tweets.map(tweetTemplate));
   }
 
   function loadTweets(){
