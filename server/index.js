@@ -7,9 +7,17 @@ const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
 const {MongoClient} = require("mongodb");
+const sassMiddleware = require('node-sass-middleware');
 const MONGODB_URI   = "mongodb://localhost:27017/tweeter";
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(sassMiddleware({
+    /* Options */
+    src: 'styles',
+    dest: 'public',
+    debug: true,
+    outputStyle: 'compressed',
+}));
 app.use(express.static("public"));
 
 // The in-memory database of tweets. It's a basic object with an array in it.

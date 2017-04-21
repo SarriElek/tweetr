@@ -6,6 +6,11 @@
 
  $(() => {
 
+  // AJAX
+  function ajax(url, method, data){
+    return $.ajax({url, method, data});
+  }
+
   // READ
   Handlebars.registerHelper('time_ago', (timestamp) => moment(timestamp).fromNow());
   const templateText = $('#tweet-template').text();
@@ -18,10 +23,7 @@
   }
 
   function loadTweets(){
-     $.ajax({
-        url: '/tweets',
-        method: 'GET'
-      }).then(renderTweets);
+     ajax('/tweets','GET').then(renderTweets);
   }
 
   loadTweets();
@@ -52,11 +54,7 @@
         });
        return;
       }
-      $.ajax({
-        url: '/tweets',
-        method: 'POST',
-        data: $form.serialize()
-      }).then(() => {
+      ajax('/tweets','POST', $form.serialize()).then(() => {
           $form[0].reset();
           loadTweets();
       });
