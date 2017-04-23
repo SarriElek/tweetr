@@ -1,28 +1,31 @@
-.new-tweet{
+.new-tweet {
   background-color: $backgroundColor;
   border: 1px solid $borderColor;
   border-radius: $small;
   margin: 0 2em;
   padding: 1em;
   display: none;
-  h2{
-    border-bottom: 2px solid #244751;
+  @media print {
+      display: none;
+  }
+  h2 {
+    border-bottom: $largeBorder #244751;
     margin: 0 0 1em;
   }
-  textarea{
+  textarea {
     margin-bottom: $small;
     padding: $small;
     width: 100%;
   }
-  .counter{
+  .counter {
     float: right;
     font-size: $smallFont;
     margin-top: $small;
   }
-  .error{
+  .error {
     color: $error;
   }
-  .flash_message{
+  .flash_message {
     color: $error;
   }
 }

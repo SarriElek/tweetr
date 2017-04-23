@@ -11,6 +11,9 @@
   left: 0;
   right: 0;
   z-index: 1;
+  @media print {
+      display: none;
+  }
   .logo {
     width: $height;
     height: $height;
@@ -22,20 +25,31 @@
     padding-left: $medium;
     line-height: $height;
     font-size: $largeFont;
+    @media (max-width: $maxMedia) {
+      font-size: $mediumFont;
+    }
   }
   .actions {
     align-self: center;
   }
   button {
-    border : 2px solid black;
+    border : $largeBorder black;
     border-radius: $small;
-    font-size: 1.3em;
+    font-size: $mediumFont;
     padding: $medium;
     background-color: $BGColorLight;
     color: $FColorLight;
+    @media (max-width: $maxMedia) {
+      font-size: $smallFont;
+      padding: $small;
+      border: $smallBorder black;
+      & i {
+        display: none;
+      }
+    }
   }
   button:hover {
     background-color: $BGColorLighter;
     color: $FColorDark;
-}
+  }
 }

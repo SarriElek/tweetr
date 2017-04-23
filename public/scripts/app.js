@@ -20,11 +20,17 @@
   function renderTweets(tweets) {
     $('#tweets-container').empty()
                           .append(tweets.map(tweetTemplate));
+
     // LIKES
     $('.tweet img').on('click',function(event){
       $tweetId = $(this).closest('.tweet').data('tweetId');
-      $tweetLikes = $(this).data('tweetLikes');
-      ajax(`/tweet/${$tweetId}`,'PUT');
+      $likesSpan = $(this).next();
+      $tweetLikes = $likesSpan.data('tweetLikes');
+      ajax(`/tweet/${$tweetId}`,'PUT').then(function(){
+        const totalLikes = $tweetLikes + 1;
+        $likesSpan.data('tweetLikes', totalLikes);
+        $likesSpan.text(totalLikes);
+      });
     });
   }
 

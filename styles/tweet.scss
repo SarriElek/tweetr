@@ -1,15 +1,15 @@
 .tweet {
-  border: 1px solid $borderColor;
+  border: $smallBorder $borderColor;
   border-radius: $small;
   margin: 2em;
   opacity: 0.8;
   &:hover {
     opacity: 1;
   }
-  &:hover .actions{
+  &:hover .actions {
     opacity: 1;
   }
-  header{
+  header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,26 +17,32 @@
     height: 86px;
     padding: 1em;
   }
-  .name{
+  .name {
     font-size: $largeFont;
     font-weight: bolder;
     align-self: center;
     margin-right: auto;
+    @media print, (max-width: $maxMedia) {
+      font-size: $mediumFont;
+    }
   }
-  .avatar{
+  .avatar {
     align-self: center;
     border-radius: $small;
     float: left;
     height: $large;
     margin-right: $medium;
     width: $large;
+    @media print {
+      display: none;
+    }
   }
-  .username{
+  .username {
     align-self: flex-start;
     font-size: $smallFont;
     margin-top: $small;
   }
-  footer{
+  footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -44,11 +50,11 @@
     font-size: $smallFont;
     padding: $small;
   }
-  .actions{
+  .actions {
     align-self: center;
     opacity: 0;
     padding-left: $small;
-     span{
+    span {
       padding-left: $small;
     }
   }
