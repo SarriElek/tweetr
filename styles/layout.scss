@@ -3,6 +3,32 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+$height: 80px;
+
+$BGColorDark: #00a087;
+$BGColorMedium: mintcream;
+$BGColorLight: #E7FDFF;
+$BGColorLighter: white;
+
+$Font: 'Roboto Condensed', sans-serif;
+
+$FColorDark: black;
+$FColorMedium: #244751;
+$FColorLight: #00A086;
+$FColorLighter: #e8fdff;
+
+$small: 5px;
+$medium: 15px;
+$large: 50px;
+
+$smallFont: 0.8em;
+$largeFont: 2em;
+
+$borderColor: #cbcbcb;
+$backgroundColor: #EEF6EE;
+
+$error: red;
+
 html {
   box-sizing: border-box;
 }
@@ -16,22 +42,18 @@ html {
 
 body {
   margin: 0;
-  color: #244751;
-  background-color: mintcream;
-  font-family: 'Roboto Condensed', sans-serif;
+  color: $FColorMedium;
+  background-color: $BGColorMedium;
+  font-family: $Font;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
- .container{
-    background-color: white;
-    margin: 100px auto;
-    padding: 50px 0 100px;
-    vertical-align: middle;
-    width: 450px;
-}
-
-.container p{
-  padding: 0 10px;
+.container {
+  background-color: $BGColorLighter;
+  margin: 100px auto;
+  padding: 50px 0 100px;
+  vertical-align: middle;
+  width: 450px;
+  p {
+    padding: 0 10px;
+  }
 }
