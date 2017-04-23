@@ -20,6 +20,12 @@
   function renderTweets(tweets) {
     $('#tweets-container').empty()
                           .append(tweets.map(tweetTemplate));
+    // LIKES
+    $('.tweet img').on('click',function(event){
+      $tweetId = $(this).closest('.tweet').data('tweetId');
+      $tweetLikes = $(this).data('tweetLikes');
+      ajax(`/tweet/${$tweetId}`,'PUT');
+    });
   }
 
   function loadTweets(){
@@ -59,4 +65,5 @@
           loadTweets();
       });
   });
+
 });

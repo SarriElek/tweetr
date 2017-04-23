@@ -46,7 +46,7 @@
       </section>
     </main>
     <script id="tweet-template" type="x-template/handlebars">
-      <article class="tweet">
+      <article class="tweet" data-tweet-id="{{_id}}">
         <header>
           <img class="avatar" src="{{user.avatars.small}}" />
           <span class="name">{{user.name}}</span>
@@ -56,9 +56,9 @@
         <footer>
           <span>{{time_ago created_at}}</span>
           <div class="actions">
-            <img src="/images/symbol.png" />
-            <img src="/images/arrows.png" />
-            <img src="/images/shapes.png" />
+            <img src="/images/symbol.png" /><span data-tweet-flags="{{flags}}">{{flags}}</span>
+            <img src="/images/arrows.png" /><span data-tweet-retweet="{{retweets}}">{{retweets}}</span>
+            <img src="/images/shapes.png" /><span data-tweet-likes="{{likes}}">{{likes}}</span>
           </div>
         </footer>
       </article>

@@ -29,10 +29,14 @@ module.exports = function(DataHelpers) {
       content: {
         text: req.body.text
       },
+      likes: 0,
+      retweets: 0,
+      flags: 0,
       created_at: Date.now()
     };
 
-    DataHelpers.saveTweet(tweet, (err) => {
+    DataHelpers.saveTweet(tweet,
+      (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
